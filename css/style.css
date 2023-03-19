@@ -1,0 +1,1067 @@
+/* Start Variabels */
+:root{
+    --main-color: #19c8fa;
+    --transparent-color: rgba(15 116 143 / 70%);
+    --section-padding: 100px 0;
+}
+/* End Variabels */
+
+/* Start Gloobal Rulse */
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    font-family: 'Open Sans', sans-serif;
+}
+ul{
+    list-style: none;
+}
+.container{
+    padding: 0 15px;
+    margin: 0 auto
+}
+
+/* small */
+@media (min-width: 768px){
+    .container{
+        width: 750px;
+    }
+}
+/* medium */
+@media (min-width: 992px){
+    .container{
+        width: 970px;
+    }
+}
+/* large */
+@media (min-width: 1200px){
+    .container{
+        width: 1170px;
+    }
+}
+/* End Gloobal Rulse */
+/* Start components */
+.main-heading{
+    text-align: center;
+}
+.main-heading h2{
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: 40px;
+    margin-bottom: 70px;
+    position: relative;
+}
+.main-heading h2::before{
+    content: '';
+    height: 2px;
+    width: 120px;
+    background-color: #333;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -30px;
+
+}
+.main-heading h2::after{
+    content: '';
+    height: 14px;
+    width: 14px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 2px solid #333;
+    bottom: -37px;
+}
+.main-heading p{
+    width: 550px;
+    margin: 0 auto 100px;
+    line-height: 2;
+    color: #777;
+    max-width: 100%;
+    /* حطيت الماكس ويدت عشان النص في حالة الموبايل ما يطلعش برا مساحته */
+}
+/* End components */
+/* Start Header */
+header{
+    position: absolute;        /* عشان الهيدر مش حيكون محسوب ف الصفحة خالص لانه الصورة كانت ماخذة كل landing */
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
+header .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    min-height: 97px;          /* عشان لمن ازود في قمة البادنك الخاص باللنكات يزيد معاه و هنا ظفتها لاني لمن عملة هوفر اخفي اللنكات ف الشاشة الصغير الارتفاع تغير وقل  */
+}
+header .container::after{
+    content: '';
+    width: calc(100% - 30px);
+    height: 1px;
+    background-color: #a2a2a2;
+    position: absolute;
+    left: 15px;
+    bottom: 0;
+}
+header .container .logo img{
+    height: 40px;
+    cursor: pointer;
+}
+header nav{
+    flex: 1;     /* عشان ياخذ باقي المساحة(كلها) من الهيدر */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+}
+header nav .toggle-menu{
+    color: white;
+    font-size: 22px;
+
+}
+@media (min-width: 768px){
+    header nav .toggle-menu{
+        display: none;
+    }
+}
+header nav .toggle-menu:hover + ul{
+    display: flex;   
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 50%);
+}
+header nav .toggle-menu:hover + ul li a{
+    padding: 15px;
+}
+header nav ul{
+    display: flex;
+}
+@media (max-width: 768px){
+    header nav ul{
+        display: none;
+    }
+}
+header nav ul li a{
+    padding: 40px 10px;
+    display: block;
+    color: white;
+    font-size: 14px;
+    text-decoration: none;
+    transition: 0.3s;
+    position: relative;        
+    z-index: 2;   
+}
+header nav ul li a.active,
+header nav ul li a:hover{
+    color: var(--main-color);
+    border-bottom: 1px solid var(--main-color);
+}
+header nav .form{
+width: 40px;
+height: 30px;
+margin-left: 30px;
+border-left: 1px solid white;
+position: relative;
+}
+header nav .form i{
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;   
+    transform: translateY(-50%);
+    right: 0;
+}
+/* End Header */
+/* Start Landing */
+.landing{
+    min-height: 100vh;
+    background-color: #1f2021;  
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    position: relative;
+}
+.landing .overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 60%);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.landing .text{
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 50px;
+    background-color: var(--transparent-color);
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+}
+.landing .text .contain{
+    max-width: 500px;
+
+}
+@media(max-width: 991px){
+    .landing .text{
+            width: 100%
+        }
+    .landing .text .contain{
+            max-width: 100%;
+        }
+}
+@media(max-width: 545px){
+    .landing .text{
+            width: 100%;
+            padding: 15px;
+        }
+    .landing .text .contain{
+            max-width: 100%;
+        }
+}
+.landing .text .contain h2{
+
+    font-weight: normal;
+    font-size: 32px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+@media(max-width: 545px){
+    .landing .text .contain h2 {
+        font-size: 20px;
+    }
+    .landing .text .contain p {
+        font-size: 12px;
+    }
+}
+.landing .text .contain p{
+    font-size: 14px;
+    line-height: 2;
+}
+.landing .fas{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ddd
+}
+@media(max-width: 768px){
+    .landing .fas{
+        display: none;
+    }
+}
+.landing .fa-angle-left{
+    left: 30px;
+}
+.landing .fa-angle-right{
+    right: 30px;
+}
+.landing .boullets{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    display: flex;
+}
+.landing .boullets li{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 1px solid white;
+    margin-right: 10px;
+}
+.landing .boullets li.active{
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+/* End Landing */
+/* Start Services */
+.services{
+    padding: var(--section-padding);
+}
+@media (min-width:768px){
+    .services .services-content{
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(450px,1fr));
+        grid-column-gap: 40px;
+        grid-row-gap: 60px;
+    }
+}
+.services .srv-box{
+    display: flex;
+
+}
+.services .srv-box i{
+    margin-right: 50px;
+}
+@media (max-width: 767px){
+    .services .srv-box{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .services .srv-box i{
+        margin: 0 0 30px;
+    }
+}
+.services .srv-box .text h3{
+    margin-bottom: 30px;
+    color: var(--main-color);
+
+}
+.services .srv-box .text p{
+    line-height: 2;
+    color: #777;
+
+}
+/* End Services */
+/* Start Desgin */
+.desgin{
+    padding: var(--section-padding);
+    background-image: linear-gradient(rgba(0,0,0,60%) , rgba(0,0,0,60%)) , url(../images/design-features.jpg);
+    height: 600px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+.desgin .image,
+.desgin .text {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+}
+.desgin .image {
+  margin-left: 60px;
+}
+.desgin .image img {
+  position: relative;
+  bottom: -150px;
+}
+@media (max-width: 841px) {
+    .desgin .image {
+      display: none;
+    }
+}
+.desgin .text{
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    width: 50%;
+    padding: 50px;
+    background-color: var(--transparent-color);
+    color: white;
+}
+@media (max-width: 841px) {
+    .desgin .text {
+      width: 100%;
+    }
+    .desgin .text ul li{
+     line-height: 1.2;
+    }
+}
+.desgin .text h2{
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+.desgin .text ul li{
+    padding: 15px 0;
+    font-size: 17px;
+    line-height: 1.7;
+}
+.desgin .text ul li::before{
+    /* عشان يعمل الايقونات الي جنب النص بس بطريقة تانية */
+    font-family: 'Font Awesome 5 free';
+    content: '\f108';
+    font-weight: 900;
+    margin-right: 20px;
+    position: relative;
+    top: 1px;
+
+}
+/* End Desgin */
+/* Start Portfolio */
+.Portfolio{
+    padding: var(--section-padding);
+    position: relative;
+}
+.Portfolio .shuffle{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+
+}
+.Portfolio .shuffle li{
+    padding: 10px;
+}
+.Portfolio .shuffle li:hover{
+    background-color: var(--main-color);
+    color: white;
+    cursor: pointer;
+}
+.Portfolio .shuffle li.active{
+    background-color: var(--main-color);
+    color: white;
+}
+.Portfolio .imgs-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+.Portfolio .imgs-container .box{
+    overflow: hidden;
+    position: relative;
+}
+@media (min-width: 768px){
+    .Portfolio .imgs-container .box{
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 1199px){
+    .Portfolio .imgs-container .box{
+        flex-basis: 25%;
+    }
+}
+.Portfolio .imgs-container .box img{
+    max-width: 100%;
+    transition: 0.3s;
+}
+.Portfolio .imgs-container .box .caption{
+    width: 100%;
+    padding: 20px;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    bottom: -100%;
+    transition: 0.3s;
+}
+.Portfolio .imgs-container .box:hover .caption{
+    bottom: 0;
+}
+.Portfolio .imgs-container .box:hover img{
+    transform: rotate(3deg) scale(1.1);
+}
+.Portfolio .imgs-container .box .caption h4{
+    font-weight: normal;
+    margin-bottom: 10px;
+}
+.Portfolio .imgs-container .box .caption p{
+    color: var(--main-color);
+}
+.Portfolio .imgs-container .more{
+    text-decoration: none;
+    text-transform: uppercase;
+    width: fit-content;
+    display: block;
+    padding: 15px 20px;
+    margin: 30px auto;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    position: relative;
+    
+     
+}
+.Portfolio .imgs-container .more span{
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--main-color);
+    z-index: -1;
+    transition: 0.3s;
+}
+.Portfolio .imgs-container .more:hover span{
+    width: 100%;
+}
+.Portfolio .imgs-container .more:hover{
+    color: white;
+    border: none;
+}
+/* End Portfolio */
+/* Start Video */
+.video{
+    position: relative;
+}
+.video::before{
+    /* طريقة تانية عشان اعمل الضباب الاسود الي على الفديو */
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 40%);
+}
+.video video{
+    width: 100%;
+}
+.video .text{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 50px;
+    background-color: var(--transparent-color);
+    color: white;
+    text-align: center;
+}
+@media (max-width: 767px){
+    .video .text{
+        padding: 5px;
+    }
+}
+.video .text h2{
+    text-transform: uppercase;
+    font-weight: normal;
+    margin-bottom: 30px;
+}
+@media (max-width: 767px){
+    .video .text h2{
+        font-size: 20px;
+        margin: 15px 0;
+    }
+}
+.video .text p{
+    margin-bottom: 30px;
+}
+@media (max-width: 767px){
+    .video .text p{
+        margin-bottom: 15px;
+    }
+}
+.video .text button{
+    color: white;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    background-color: black;
+    border: 0;
+}
+@media (max-width: 767px){
+    .video .text button{
+        margin-bottom: 15px;
+    }
+}
+
+/* End Video */
+/* Start About */
+.about{
+    padding-top: 100px;
+    text-align: center;
+    overflow: hidden;
+}
+.about img{
+    position: relative;
+    bottom: -120px;
+    margin-top: -120px;  /* عشان المسافة الي زادت فوق الصورة لمن قصيت منها */
+    max-width: 100%;
+}
+@media (max-width: 767px){
+    .about img{
+        bottom: -60px;
+        margin-top: -60px;  /* عشان المسافة الي زادت فوق الصورة لمن قصيت منها */
+    }
+}
+/* End About */
+/* Start Stats */
+.stats{
+    padding: var(--section-padding);
+    background: linear-gradient(rgba(0, 0, 0, 70%),rgba(0, 0, 0, 70%)) , url(../images/stats.png);
+    background-size: cover;
+    text-align: center;
+
+}
+.stats .container{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+.stats .container .box{
+    background-color: var(--transparent-color);
+    padding: 50px;
+    color: white;
+
+}
+@media (max-width: 767px){
+    .stats .container .box{
+        flex-basis: 100%;
+    }
+}
+@media (min-width: 768px){
+    .stats .container .box{
+        flex-basis: 50%;
+    }
+}
+@media (min-width: 992px){
+    .stats .container .box{
+        flex-basis: 25%;
+    }
+}
+.stats .container .box i{
+    content: '';
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.stats .container .box .number{
+    font-weight: bold;
+    font-size: 50px;
+    margin: 30px 0 ;
+}
+.stats .container .box p{
+    font-size: 14px;
+}
+/* End Stats */
+/* Start Skills */
+.our-skills{
+    padding: var(--section-padding);
+}
+.our-skills .container{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+@media (min-width: 992px){
+    .our-skills .container > div{
+        flex-basis: 45%;
+    }
+}
+.our-skills .container > div > h3{
+    text-align: center;
+    font-weight: normal;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+.our-skills .container > div > p{
+    text-align: center;
+    color: #777;
+    line-height: 1.7;
+    margin-bottom: 60px;
+
+}
+.our-skills .container .testimonials .content{
+    display: flex;
+    align-items: center;  /* حطيتها عشان الصورة بقت تتمدد وتخرج عن الشكل المألوف لهان */
+    margin-bottom: 60px;
+}
+.our-skills .container .testimonials .content img{
+    width: 100px;
+    border-radius: 50%;
+    margin-right: 50px;
+}
+@media (max-width: 768px){
+    .our-skills .container .testimonials .content{
+        flex-direction: column;
+        text-align: center;
+    }
+    .our-skills .container .testimonials .content img{
+        margin: 0 auto 20px;
+
+    }
+}
+.our-skills .container .testimonials  .text{
+    line-height: 1.8;
+    border-bottom: 1px solid #777;
+
+}
+.our-skills .container .testimonials  .text p{
+    text-align: right;
+    color: #777;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+.our-skills .container .testimonials .bullets{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
+}
+.our-skills .container .testimonials .bullets li{
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    border: 1px solid #aaa;
+    margin-left: 10px;
+}
+.our-skills .container .testimonials .bullets li.active{
+    background-color: var(--main-color);
+    border-color: var(--main-color);
+}
+.our-skills  .skills  .prog-holder{
+    margin-bottom: 30px;
+}
+.our-skills  .skills  .prog-holder h4{
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    font-weight: normal;
+}
+.our-skills  .skills  .prog-holder .prog{
+    background-color: #dedadc;
+    height: 25px;
+    border-radius: 30px;
+}
+.our-skills  .skills  .prog-holder .prog span{
+    display: block;
+    background-color: var(--main-color);
+    height: 100%;
+    border-radius: 30px;
+    position: relative;
+}
+.our-skills  .skills  .prog-holder .prog span::before{
+    content: attr(data-progress);
+    width: 40px;
+    background-color: black;
+    color: white;
+    padding: 4px;
+    border-radius: 4px;
+    position: absolute;
+    top: -40px;
+    right: -22px;
+    text-align: center;
+}
+.our-skills  .skills  .prog-holder .prog span::after{
+    content: '';
+    position: absolute;
+    border-width: 8px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+    right: -6px;
+    top: -14px;
+}
+/* End Skills */
+/* Start Quote */
+.quote{
+    padding: var(--section-padding);
+    background-image: linear-gradient(rgba(0, 0, 0, 75%) ,rgba(0, 0, 0, 75%)),url(../images/quote.jpg);
+    background-size: cover;
+}
+.quote .container{
+    color: white;
+    text-align: center;
+}
+.quote .container q{
+    font-size: 30px;
+    display: block;
+    margin-bottom: 20px;
+}
+.quote .container q::before{
+    font-family: 'Font Awesome 5 free';
+    content: '\f10d';
+    font-weight: 600;
+    margin-right: 10px;
+}
+.quote .container q::after{
+    font-family: 'Font Awesome 5 free';
+    content: '\f10e';
+    font-weight: 600;
+    margin-left: 10px;
+}
+/* End Quote */
+/* Start Pricing */
+.pricing{
+    padding: var(--section-padding);
+}
+.pricing .plans{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
+@media  (max-width: 1199px){
+    .pricing .plans {
+        display: grid;
+        grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+
+    } 
+}
+.pricing .plans .plan{
+    text-align: center;
+}
+.pricing .plans .plan .head{
+padding: 40px 20px;
+border-top: 1px solid var(--main-color);
+border-bottom: 1px solid var(--main-color);
+}
+.pricing .plans .plan .head h3{
+font-weight: normal;
+margin-bottom: 20px;
+text-transform: uppercase;
+}
+.pricing .plans .plan .head span{
+font-size: 60px;
+font-weight: bold;
+}
+.pricing .plans .plan .head span::before{
+    content: '$';
+    font-size: 27px;
+    position: relative;
+    top: -40px;
+    left: -15px;
+    font-weight: normal;
+}
+.pricing .plans .plan .head span::after{
+    content: '/MO';
+    font-size: 25px;
+    position: relative;
+    right: -15px;
+}
+.pricing .plans .plan ul{
+    border-bottom: 1px solid var(--main-color);
+   
+}
+.pricing .plans .plan ul li{
+    padding: 20px;
+    position: relative;
+}
+.pricing .plans .plan ul li:not(:last-child)::after{
+    content: '';
+    height: 1px;
+    width: 140px;
+    background-color: var(--main-color);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.pricing .plans .plan .foot a {
+    display: block;
+    padding: 20px 20px;
+    text-decoration: none;
+    border: 1px solid var(--main-color);
+    width: fit-content;
+    margin: 30px auto;
+  }
+.pricing .container .contact-text{
+    text-align: center;
+    font-size: 20px;
+    
+
+}
+.pricing .container  .contact-link{
+    display: block;
+    text-decoration: none;
+    padding: 15px 30px;
+    width: fit-content;
+    color: var(--main-color);
+    border: 1px solid var(--main-color);
+    margin: 20px auto;
+    position: relative;
+}
+.pricing .container  .contact-link span{
+    width: 0;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: var(--main-color);
+    transition: 0.3s;
+    z-index: -1;
+}
+.pricing .container  .contact-link:hover span{
+    width: 100%;
+}
+.pricing .container  .contact-link:hover{
+    color: white;
+    border: none;
+}
+/* End Pricing */
+/* Start Subscribe */
+.subscribe{
+    padding: var(--section-padding);
+    background-image: linear-gradient(rgba(0, 0, 0, 60%), rgba(0, 0, 0, 60%)) ,url(../images/subscribe.jpg);
+    background-size: cover;
+}
+.subscribe .container{
+    display: flex;
+    align-items: center;
+}
+@media (max-width: 991px){
+    .subscribe .container{
+        flex-direction: column;
+    }
+}
+.subscribe .container form{
+    display: flex;
+    width: 500px;
+    max-width: 100%;
+    position: relative;
+}
+.subscribe .container form i{
+    color: white;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 25px;
+}
+.subscribe .container form input[type="email"]{
+    background-color: transparent;
+    padding: 20px 20px 20px 60px;
+    border: 1px solid white;
+    border-right: none;
+    caret-color: var(--main-color);
+    width: calc(100% - 130px);
+    outline: none;
+}
+.subscribe .container form input::placeholder{
+    color: white;
+}
+.subscribe .container form input[type="submit"]{
+    width: 130px;
+    background-color: var(--main-color);
+    color: white;
+    padding: 10px 20px;
+    border: 1px solid white;
+    border-left: none;
+    text-transform: uppercase;
+    outline: none;
+    cursor: pointer;
+}
+.subscribe .container p{
+    color: white;
+    line-height: 2;
+    margin-left: 50px;
+}
+@media (max-width: 991px){
+    .subscribe .container p{
+        margin: 30px auto;
+    }
+}
+/* End Subscribe */
+/* Start-Contact */
+.contact{
+    padding: var(--section-padding);
+}
+.contact .content{
+    display: flex;
+    justify-content: space-between;
+}
+@media (max-width: 767px){
+    .contact .content{
+        flex-direction: column;
+    }
+}
+.contact .content form{
+    flex-basis: 70%;
+    
+}
+.contact .content form .main-input{
+    padding: 20px;
+    display: block;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-bottom: 30px;
+    width: 100%;
+}
+.contact .content form textarea.main-input{
+    height: 200px;
+}
+.contact .content form input[type="submit"]{
+    background-color: var(--main-color);
+    color: white;
+    padding: 20px;
+    border: 0;
+    display: flex;
+    margin-left: auto;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.contact .content .info{
+    flex-basis: 25%;
+}
+@media (max-width: 767px){
+    .contact .content .info{
+        order: -1;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 35px;
+    }
+}
+
+.contact .content .info h4{
+    font-weight: 500;
+    margin-bottom: 30px;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.contact .content .info .phone{
+    display: block;
+    color: #777;
+    margin-bottom: 10px;
+}
+.contact .content .info h4:nth-of-type(2){
+margin-top: 90px;
+}
+@media (max-width: 767px){
+    .contact .content .info h4:nth-of-type(2){
+        margin-top: 30px;
+    }
+}
+.contact .content .info address{
+color: #777;
+line-height: 2;
+}
+@media (max-width: 767px){
+    .contact .content .info address{
+        margin-bottom: 40px;
+    }
+}
+/* End-Contact */
+/* Start Footer */
+footer{
+    padding: 50px 0;
+    background-image: linear-gradient(rgba(0 ,0 ,0 ,0.75),rgba(0 ,0 ,0 ,0.75)), url(../images/subscribe.jpg);
+    background-size: cover;
+}
+footer .container{
+    text-align: center;
+    color: white;
+}
+footer .container .logo{
+    margin-bottom: 20px;
+    
+}
+footer .container p:not(.copyright){
+    text-transform: uppercase;
+    padding: 20px;
+    border-bottom: 1px solid white;
+    font-size: 22px;
+    width: fit-content;
+    margin: 20px auto;
+}
+footer .container .social-icon i{
+    margin: 10px 15px 0;
+}
+footer .container p.copyright{
+    margin-top: 50px;
+}
+footer .container p.copyright span{
+    color: var(--main-color);
+    font-weight: bold;
+
+}
+/* End Footer */
